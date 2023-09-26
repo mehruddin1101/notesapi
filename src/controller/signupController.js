@@ -21,10 +21,10 @@ const SignupController = async (req, res) => {
 
     await newUser.save();
 
-    res.status(201).json({ message: 'Signup successful' });
+    res.status(201).json({ statusText: 'Signup successful' });
   } catch (error) {
     console.error('Signup Error:', error);
-    res.status(500).json({ message: 'Internal server error' });
+    res.status(500).json({ statusText: 'Internal server error' });
   }
 };
 
