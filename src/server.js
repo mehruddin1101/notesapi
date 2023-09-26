@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const connect = require('./database/connect');
 const router = require('./routes/routes');
-const { spawn } = require('child_process');
+const SingupRouter= require("./routes/AuthRouter")
 const cors = require('cors'); // Import the cors middleware
 
 const app = express();
@@ -18,7 +18,7 @@ app.use(cors());
 
 app.use("/api/compiler", router);
 app.use("/api/timecomplexity", router)
-
+app.use("/api/Auth", SingupRouter)
 
 app.listen(port, () => {
   console.log(`App is listening on port http://localhost:${port}`);
