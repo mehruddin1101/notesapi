@@ -16,8 +16,8 @@ app.use(cors());
 // controllers 
 app.use("/api/compiler", router);
 app.use("/api/timecomplexity", router)
-app.use("/api/Auth", SingupRouter)
-app.use("/api/feedback", FeebBackRouter )
+app.use("/api/Auth",SingupRouter)
+app.use("/api/feedback",FeebBackRouter)
 
 app.listen(port, () => {
   console.log(`App is listening on port http://localhost:${port}`);
