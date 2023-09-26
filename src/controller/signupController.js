@@ -8,7 +8,7 @@ const SignupController = async (req, res) => {
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
-      return res.status(409).json({ message: 'Email already in use' });
+      return res.status(409).json({ statusText: 'Email already in use' });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
