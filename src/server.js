@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use("/api/compiler", router);
-app.use("api/timecomplexity", router)
+app.use("/api/timecomplexity", router)
 
 
 
