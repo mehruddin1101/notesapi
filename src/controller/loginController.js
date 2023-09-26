@@ -14,7 +14,6 @@ const LoginController = async (req, res) => {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
     
-    // If login is successful, send the user data in the response
     res.status(200).json({ message: 'Login successful', user: user });
   } catch (error) {
     console.error('Login Error:', error);
