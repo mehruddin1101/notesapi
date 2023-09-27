@@ -1,5 +1,9 @@
 const User = require('../model/userSchema');
 const bcrypt = require('bcrypt');
+const nodemailer = require('nodemailer');
+const ejs = require('ejs');
+const path = require('path');
+require('dotenv').config();
 
 const SignupController = async (req, res) => {
   try {
@@ -21,6 +25,9 @@ const SignupController = async (req, res) => {
 
     await newUser.save();
 
+    // Send email to the user
+    await sendSignupEmail(email);
+
     res.status(201).json({ statusText: 'Signup successful' });
   } catch (error) {
     console.error('Signup Error:', error);
@@ -28,6 +35,36 @@ const SignupController = async (req, res) => {
   }
 };
 
+const sendSignupEmail = async (toEmail) => {
+  try {
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    // Render HTML content from the EJS template
+    const htmlContent = await ejs.renderFile(path.join(__dirname, 'emailTemplate.ejs'));
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: toEmail,
+      subject: 'Welcome to Online Tools App',
+      html: htmlContent,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    console.log('Signup email sent successfully');
+  } catch (error) {
+    console.error('Error sending signup email:', error);
+    throw error; 
+  }
+};
 module.exports = {
   SignupController,
 };
