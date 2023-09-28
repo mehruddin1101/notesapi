@@ -11,11 +11,7 @@ const port = process.env.PORT || 3001;
 connect();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-app.use(cors({
-  origin: 'https://rich-ruby-goldfish-belt.cyclic.cloud',
-  allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+app.use(cors());
 
 // controllers 
 app.use("/api/compiler", router);
