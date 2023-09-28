@@ -1,9 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const connect = require('./database/connect');
-const router = require('./routes/routes');
-const SingupRouter= require("./routes/AuthRouter");
-const  FeebBackRouter = require("./routes/FeebBackRouter")
+const connect = require('./src/database/connect');
+const router = require('./src/routes/routes');
+const SingupRouter= require("./src/routes/AuthRouter");
+const  FeebBackRouter = require("./src/routes/FeebBackRouter")
 
 const cors = require('cors'); 
 const app = express();
