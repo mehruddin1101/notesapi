@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.use(cors({
   origin: 'https://rich-ruby-goldfish-belt.cyclic.cloud',
-  allowedHeaders: '*',
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
 // controllers 
