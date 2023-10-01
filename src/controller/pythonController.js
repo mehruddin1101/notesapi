@@ -2,8 +2,8 @@ const { exec } = require('child_process');
 const PythonModel = require('../model/model'); 
 
 const executePythonCode = async (req, res) => {
-  const { code } = req.body;
-  exec(`/usr/bin/python3 -c "${code}"`, async (error, stdout, stderr) => {
+  const { code } = req.body
+  exec(`/usr/bin/python3 -c 'exec("""${code}""")' `, async (error, stdout, stderr) => {
     if (error) {
       // console.error('Error executing Python code:', error);
       return res.status(500).json({ error: 'Error executing Python code', output: stderr });

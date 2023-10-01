@@ -2,7 +2,7 @@ const { exec } = require('child_process');
 
 const calculatePythonCyclomaticComplexity = (code) => {
   return new Promise((resolve, reject) => {
-    const command = `radon cc -`; // Use radon to calculate cyclomatic complexity
+    const command = `radon cc -`; 
 
     const childProcess = exec(command, (error, stdout, stderr) => {
       if (error) {
