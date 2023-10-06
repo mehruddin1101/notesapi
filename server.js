@@ -73,7 +73,7 @@ app.post("/api/pdftoword", uploads.single('pdf'), (req, res) => {
 
   const pysheel = new PythonShell("pyscript.py", {
     mode: 'text',
-    pythonPath: '/usr/bin/python3.11.5',
+    pythonPath: 'python3',
     scriptPath: __dirname,
     args: [req.file.path],
   });
