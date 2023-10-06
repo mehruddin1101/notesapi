@@ -1,2 +1,1 @@
-python==3.11
-pdf2docx==0.5.6
+convert-pdftodocx==0.0.1
