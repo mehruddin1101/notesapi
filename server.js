@@ -27,9 +27,7 @@ var storage = multer.diskStorage({
       cd(null, "uploads")
   },
   filename: function (req, file, cb) {
-
     const relativeFilePath = `${Date.now()}${path.extname(file.originalname)}`;
-  
     cb(null, relativeFilePath);
   }
 })
