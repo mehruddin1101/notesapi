@@ -1,17 +1,12 @@
 import sys
 import os
-from convert_pdftodocx import convert
+from pdf2docx import Converter
 
-def convert_pdf_to_docx(pdf_path, output_path):
-    convert(pdf_path, output_path)
-    print("Conversion complete")
+pdf_path = sys.argv[1]
 
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python script.py <path_to_pdf>")
-        sys.exit(1)
+ooutput_path = os.path.splitext(pdf_path)[0] + ".docx"
 
-    pdf_path = sys.argv[1]
-    output_path = os.path.splitext(pdf_path)[0] + ".docx"
-
-    convert_pdf_to_docx(pdf_path, output_path)
+converter= Converter(pdf_path)
+converter.convert(ooutput_path)
+converter.close()
+print("conversion complete")

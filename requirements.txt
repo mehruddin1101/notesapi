@@ -1,1 +1,1 @@
-convert-pdftodocx==0.0.1
+pdf2docx==0.5.6
